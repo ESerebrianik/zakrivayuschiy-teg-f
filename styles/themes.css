@@ -8,7 +8,8 @@
 :root.theme-dark {
 --main_font: 'Inter-Variable', sans-serif;
 --accent_font: 'PressStart2P', monospace;
---font_weight_Inner: 465;
+--font_weight_Inter: 465;
+--font_weight_Inter_bold: 785;
 --font_weight_PressStart: 400; 
 --bg_color: black;
 --font_color: #00CC14;
@@ -26,7 +27,8 @@
 :root.theme-light {
 --main_font: 'Inter-Variable', sans-serif;
 --accent_font: 'PressStart2P', monospace;
---font_weight_Inner: 400;
+--font_weight_Inter: 400;
+--font_weight_Inter_bold: 700;
 --font_weight_PressStart: 400; 
 --bg_color: #fff;
 --font_color: black;

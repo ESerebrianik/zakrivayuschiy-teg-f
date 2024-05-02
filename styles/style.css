@@ -32,7 +32,7 @@ body {
   min-inline-size: 320px;
   inline-size: 100vw;
   min-block-size: 100dvb;
-  font-variation-settings: var(--font_weight_Inner);
+  font-variation-settings: var(--font_weight_Inter);
   color: var(--font_color);
   background-color: var(--bg_color);
   background-image: var(--bg_image);
@@ -47,7 +47,7 @@ body {
   inline-size: 48.6vw;
   min-block-size: 38.33dvb;
   background-color: var(--bg_color);
-  border: 2px solid var(--font_color);
+  outline: 2px solid var(--font_color);
   justify-items: center;
   margin-block-start: 100px;
   justify-self: center;
@@ -103,7 +103,7 @@ body {
 
 .theme-menu__button::after {
   content:'';
-  border-bottom: 2px solid currentColor;
+  border-block-end: 2px solid currentColor;
   position: absolute;
   bottom: -3px;
   left: 0;
@@ -165,14 +165,14 @@ body {
 .card {
   inline-size: 48.6vw;
   background-color: var(--bg_color);
-  border: 2px solid var(--font_color);
+  outline: 2px solid var(--font_color);
   display: grid;
 }
 
 .card_header {
   font-size: 18px;
   line-height: 21.78px;
-  font-weight: 700;
+  font-weight: var(--font_weight_Inter_bold);
   margin: 4px 24px 3px 10px;
   min-block-size: 25px;
 }
@@ -184,10 +184,11 @@ body {
 .image {
   inline-size: 48.33vw;
   block-size: 72.5dvb;
-  border-bottom: 2px solid var(--font_color);
-  border-top: 2px solid var(--font_color);
+  border-block-end: 2px solid var(--font_color);
+  border-block-start: 2px solid var(--font_color);
   justify-self: center;
   object-fit: cover;
+  object-position: center;
 }
 
 .card:first-child .image {
@@ -249,7 +250,7 @@ body {
   font-family: var(--main_font);
   margin: 25px;
   font-size: 18px;
-  font-weight: 400;
+  font-weight: var(--font_weight_Inter);
   line-height: 21px;
   text-align: left;
 }
@@ -345,7 +346,6 @@ body {
   position: relative;
   outline: none;
   background: none;
-  border: none;
   border: 2px solid transparent;
   cursor: pointer;
   transition: outline 0.3s ease;
@@ -469,7 +469,7 @@ body {
 .dialog {
   inline-size: 357px;
   block-size: 193px;
-  border: 2px solid var(--font_color);
+  outline: 2px solid var(--font_color);
   color: var(--font_color);
   background-color: var(--bg_color);
   font-family: var(--accent_font);
@@ -496,7 +496,7 @@ body {
 .dialog-button {
   background-color: var(--bg_color);
   color: var(--font_color);
-  border: 2px solid var(--font_color);
+  outline: 2px solid var(--font_color);
   inline-size: 293px;
   block-size: 38px;
   margin-block-start: 30px;
@@ -517,7 +517,7 @@ body {
   }
 
   .header {
-    width: 99vw;
+    inline-size: 99vw;
   }
 
   .subheader {
@@ -548,8 +548,8 @@ body {
 
   .card_text {
     margin: 22px;
-    margin-right: 30px;
-    margin-bottom: 25px;
+    margin-inline-end: 30px;
+    margin-block-end: 25px;
   }
 
   .safe-button {
