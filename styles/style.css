@@ -180,10 +180,9 @@ body {
 }
 
 .image {
-  inline-size: 48.33vw;
+  inline-size: 100%;
   block-size: 72.5dvb;
-  border-block-end: 2px solid var(--font_color);
-  border-block-start: 2px solid var(--font_color);
+  outline: 2px solid var(--font_color);
   justify-self: center;
   object-fit: cover;
   object-position: center;
