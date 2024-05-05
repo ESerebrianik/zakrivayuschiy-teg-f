@@ -28,22 +28,25 @@ body {
   display: grid;
   gap: 100px;
   min-inline-size: 320px;
-  inline-size: 100vw;
+  inline-size: 100%;
+  max-inline-size: 1440px;
   min-block-size: 100dvb;
-  font-variation-settings: var(--font_weight_Inter);
+  font-variation-settings: "wght" var(--font_weight_Inter);
   color: var(--font_color);
   background-color: var(--bg_color);
   background-image: var(--bg_image);
-  background-position: fixed;
+  background-attachment: fixed;
+  background-position: center;
   background-size: cover;
   align-content: center;
   justify-content: center;
+  justify-self: center;
+  margin: 0px auto;
 }
 
 .header {
   display: grid;
-  inline-size: 48.6vw;
-  min-block-size: 38.33dvb;
+  inline-size: 99%;
   background-color: var(--bg_color);
   outline: 2px solid var(--font_color);
   justify-items: center;
@@ -51,17 +54,20 @@ body {
   justify-self: center;
 }
 
-.main_header {
+.logo {
   font-family: var(--accent_font);
   font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
   line-height: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
-  margin-block-start: clamp(7.5rem, 7.1479rem + 1.5023vw, 8.5rem);
+  padding-block-start: clamp(7.5rem, 7.1479rem + 1.5023vw, 8.5rem);
+  padding-block-end: 20px;
+  padding-inline-start: clamp(0.875rem, -1.4688rem + 10vw, 7.53125rem);
+  padding-inline-end: clamp(0.875rem, -1.4688rem + 10vw, 7.53125rem);
   justify-self: center;
   justify-items: center;
   display: block;
 }
 
-.subheader {
+.main_header {
   font-family: var(--accent_font);
   font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
   justify-self: center;
@@ -74,7 +80,9 @@ body {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  margin-inline-start: 10px;
+  margin-inline-start: 18px;
+  margin-block-start: 25px;
+  margin-block-end: 25px;
 }
 
 .theme-menu__button {
@@ -89,7 +97,7 @@ body {
 
 .theme-menu__button:hover {
   opacity: 60%;
-  transition: transform (0.3s);
+  transition: transform 0.3s;
   cursor: pointer;
 }
 
@@ -137,42 +145,33 @@ body {
   pointer-events: none;
 }
 
-@keyframes shake {
-  from {
-    left: -20px;
-  }
-
-  to {
-    left: -16px;
-  }
-}
-
 .main {
   display: block;
   justify-self: center;
   justify-items: center;
-  inline-size: 48.6vw;
 }
 
 .content {
-  display: flex;
-  flex-direction: column;
+  display: grid;
   gap: 50px;
+  max-inline-size: 700px;
+  inline-size: 99%;
+  margin: 0 auto;
 }
 
 .card {
-  inline-size: 48.6vw;
   background-color: var(--bg_color);
   outline: 2px solid var(--font_color);
   display: grid;
 }
 
 .card_header {
+  inline-size: 100%;
   font-size: 18px;
   line-height: 21.78px;
-  font-weight: var(--font_weight_Inter_bold);
-  margin: 4px 24px 3px 10px;
-  min-block-size: 25px;
+  font-variation-settings: "wght" var(--font_weight_Inter_bold);
+  padding: 8px 24px 5px 12px;
+  min-block-size: 33px;
 }
 
 .wrapper {
@@ -181,7 +180,8 @@ body {
 
 .image {
   inline-size: 100%;
-  block-size: 72.5dvb;
+  block-size: auto;
+  aspect-ratio: 1;
   outline: 2px solid var(--font_color);
   justify-self: center;
   object-fit: cover;
@@ -222,11 +222,13 @@ body {
   line-height: 14px;
   position: absolute;
   top: 25px;
-  right: 25px;
+  right: 0px;
+  padding-inline-end: clamp(0.8125rem, 0.5484rem + 1.1268vw, 1.5625rem);
   text-shadow: -1px 0 var(--outline_color), 0 1px var(--outline_color),
     1px 0 var(--outline_color), 0 -1px var(--outline_color);
   mix-blend-mode: hard-light;
   color: var(--font_color);
+  opacity: 0.5;
 }
 
 @supports (
@@ -267,18 +269,21 @@ body {
 }
 
 .card__like-button:focus,
-.safe-button:focus {
+.safe-button:focus,
+.dialog-button:focus {
   outline: none;
   box-shadow: 2px 2px 0px 0px var(--font_color);
 }
 
 .card__like-button:hover,
-.safe-button:hover {
+.safe-button:hover,
+.dialog-button:hover {
   cursor: pointer;
 }
 
 .card__like-button::before,
-.safe-button::before {
+.safe-button::before,
+.dialog-button::before {
   content: "";
   width: 100%;
   height: 100%;
@@ -293,7 +298,8 @@ body {
 }
 
 .card__like-button:hover::before,
-.safe-button:hover::before {
+.safe-button:hover::before,
+.dialog-button:hover::before {
   transform: scaleX(1);
 }
 
@@ -324,6 +330,7 @@ body {
   color: var(--font_color);
   outline: none;
   transition: box-shadow 0.3s;
+  margin: 0 auto;
 }
 
 .button__text,
@@ -431,16 +438,6 @@ body {
   pointer-events: none;
 }
 
-@keyframes scaling {
-  from {
-    scale: 1;
-  }
-
-  to {
-    scale: 1.5;
-  }
-}
-
 .like-icon.is-liked .sparks {
   animation-name: sparkling;
   animation-duration: 0.3s;
@@ -450,17 +447,7 @@ body {
   animation-direction: alternate;
 }
 
-@keyframes sparkling {
-  from {
-    fill: transparent;
-  }
-
-  to {
-    fill: var(--heart_color);
-  }
-}
-
-.dialog {
+.dialog[open] {
   inline-size: 357px;
   block-size: 193px;
   outline: 2px solid var(--font_color);
@@ -471,6 +458,12 @@ body {
   line-height: 21px;
   padding: 28px;
   text-transform: uppercase;
+  transition: opacity 0.3s ease-in-out;
+}
+
+dialog:not([open]) {
+  pointer-events: none;
+  opacity: 0;
 }
 
 .dialog-content {
@@ -487,60 +480,52 @@ body {
   gap: 20px;
 }
 
+.dialog-text {
+  max-width: 234px;
+}
+
 .dialog-button {
-  background-color: var(--bg_color);
-  color: var(--font_color);
-  outline: 2px solid var(--font_color);
+  position: relative;
+  background: none;
+  font-family: var(--accent_font);
+  border: 2px solid var(--font_color);
   inline-size: 293px;
   block-size: 38px;
+  display: block;
+  outline: none;
   margin-block-start: 30px;
   text-transform: uppercase;
   padding: 0;
   cursor: pointer;
+  transition: box-shadow 0.3s;
 }
 
 .dialog::backdrop {
   background-color: rgb(0 0 0 / 0.75);
-  backdrop-filter: blur(7px);
 }
 
 @media (width <= 375px) {
   .main {
-    inline-size: 99vw;
+    inline-size: 100%;
   }
 
-  .header {
-    inline-size: 99vw;
+  .logo {
+    font-size: clamp(2.625rem, 0.0795rem + 12.7273vw, 3.0625rem);
   }
 
   .subheader {
     margin-block-start: 20px;
   }
 
-  .theme-menu {
-    margin-block-start: 25px;
-    margin-block-end: 25px;
-  }
-
   .theme-menu__list {
     margin-inline-start: 20px;
   }
 
-  .mobile-card {
-    inline-size: 99vw;
-  }
-
-  .wrapper {
-    inline-size: 99vw;
-  }
-
-  .image {
-    inline-size: 99vw;
-    block-size: 56.22vh;
+  .content {
+    max-inline-size: 375px;
   }
 
   .card_text {
-    margin: 22px;
     margin-inline-end: 30px;
     margin-block-end: 25px;
   }
@@ -548,10 +533,15 @@ body {
   .safe-button {
     flex-direction: column;
     padding: 15px;
+    max-inline-size: 306px;
   }
 
   .floppy-2 {
     width: 28px;
     height: 28px;
+  }
+
+  .dialog-text {
+    max-width: 198px;
   }
 }

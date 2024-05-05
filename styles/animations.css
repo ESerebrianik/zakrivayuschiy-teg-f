@@ -12,3 +12,33 @@
 
 Кроме этого, не меняйте HTML переключателя тем. Его разметка также гарантирует работу своего скрипта.
 */
+
+@keyframes shake {
+    from {
+      left: -20px;
+    }
+  
+    to {
+      left: -16px;
+    }
+  }
+
+@keyframes scaling {
+    from {
+      scale: 1;
+    }
+  
+    to {
+      scale: 1.5;
+    }
+  }
+
+@keyframes sparkling {
+    from {
+      fill: transparent;
+    }
+  
+    to {
+      fill: var(--heart_color);
+    }
+  }
