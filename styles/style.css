@@ -92,12 +92,11 @@ body {
   font-size: 14px;
   line-height: 14px;
   text-transform: uppercase;
-  padding-inline: 0;
 }
 
 .theme-menu__button:hover {
   opacity: 60%;
-  transition: transform 0.3s;
+  transition: 0.3s;
   cursor: pointer;
 }
 
@@ -331,6 +330,7 @@ body {
   outline: none;
   transition: box-shadow 0.3s;
   margin: 0 auto;
+  margin-block-end: 103px;
 }
 
 .button__text,
@@ -534,6 +534,7 @@ dialog:not([open]) {
     flex-direction: column;
     padding: 15px;
     max-inline-size: 306px;
+    margin-block-end: 100px;
   }
 
   .floppy-2 {
